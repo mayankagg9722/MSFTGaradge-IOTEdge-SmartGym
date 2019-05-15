@@ -20,7 +20,7 @@ On equipping the gym with cameras, user will also get recommendations to improve
 As part of the hackathon, based on the skill sets of the team members, idea is to get at least 2 of the above to a POC stage.
 
 
-<img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/810111557939455914.jpg" height="280" width="180" >
+<img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/810111557939455914.jpg">
   
 
 ## How To  Run Code
