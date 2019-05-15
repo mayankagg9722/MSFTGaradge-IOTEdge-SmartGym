@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>PoseNet - Camera Feed Demo</title>
+    <title>SmartGym</title>
     <style>
     .footer {
         position: fixed;
@@ -40,15 +40,27 @@
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
         transform: scaleX(-1);
-        display: none;
-        " src='.\shivamplank.mp4' autoplay="true" loop="true" muted>
+        display: none;">
         </video>
-        <canvas id="output" style="transform: rotate(90deg);"/>
+        <canvas id="output" style="/* transform: rotate(90deg); */left: 58px;/* position: absolute; */"/>
 
     </div>
     <div>
       <br/><br/><br/><br/>
-      <p id="score"> </p>
+      <p id="score" style="
+      border: 3px solid black;
+      color: black;
+      margin: 5px;
+      text-align: center;
+      padding: 10px;
+      font-size: 59px;
+      color: green;
+      transform: rotate(90deg);
+      position: absolute;
+      left: 435px;
+      top: 418px;
+  "> </p>
+      <div style="width: 600px;margin: 0 auto;transform: rotate(90deg);"><span style="border: 3px solid black;color: black;margin: 5px;text-align: center;padding: 5px;font-size: 72px;color: red;transform: rotate(90deg);" id="suggestion">Suggestion</span></div>
     </div>
     <!-- <video id="video2" src="" autoplay="true"></video>
     <div class="footer">
@@ -62,6 +74,7 @@
     </div> -->
     <canvas id='cv2' style="display: none"/>
     <script src="camera.js"></script>
+    <audio src="hipsdown.mp4" id='hipsdownaudio'></audio>
 </body>
 
 </html>

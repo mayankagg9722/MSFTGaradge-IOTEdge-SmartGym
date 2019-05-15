@@ -53,22 +53,23 @@ async function setupCamera() {
   // video.style.cssText = "transform: rotateY(90deg);";
 
 
-  // const mobile = isMobile();
-  // const stream = await navigator.mediaDevices.getUserMedia({
-  //   'audio': false,
-  //   'video': {
-  //     facingMode: 'user',
-  //     width: mobile ? undefined : videoWidth,
-  //     height: mobile ? undefined : videoHeight,
-  //   },
-  // });
+  const mobile = isMobile();
+  const stream = await navigator.mediaDevices.getUserMedia({
+    'audio': false,
+    'video': {
+      facingMode: 'user',
+      width: mobile ? undefined : videoWidth,
+      height: mobile ? undefined : videoHeight,
+    },
+  });
   // video.src = '.\IMG_1164.MOV';
+  video.srcObject = stream;
 
   return new Promise((resolve) => {
-    // video.onloadedmetadata = () => {
-    //   resolve(video);
-    // };
-    resolve(video);
+    video.onloadedmetadata = () => {
+      resolve(video);
+    };
+    // resolve(video);
   });
 }
 
@@ -195,7 +196,7 @@ function setupFPS() {
   stats.showPanel(0);  // 0: fps, 1: ms, 2: mb, 3+: custom
   document.body.appendChild(stats.dom);
 }
-
+let accuracies = [];
 /**
  * Feeds an image to posenet to estimate poses - this is where the magic
  * happens. This function loops with a requestAnimationFrame method.
@@ -270,6 +271,22 @@ function detectPoseInRealTime(video, net) {
       });
       console.log(pose.keypoints)
       let angle = calculateAngles(keypointLocations)
+      let accuracy = angle / 180
+      accuracies.push(accuracy);
+      console.log("length ", accuracies.length)
+      if (accuracies.length > 30) {
+        let sum = accuracies.reduce((previous, current) => current += previous);
+        let avg = sum / accuracies.length;
+        if (avg < .85) {
+          let hipsaudio = document.getElementById('hipsdownaudio');
+          hipsaudio.play();
+          accuracies = [];
+          document.getElementById('suggestion').innerHTML = "Poor";
+        } else {
+          document.getElementById('suggestion').innerHTML = "Good";
+        }
+        accuracies = []
+      }
       document.getElementById('score').innerHTML = "Accuracy = " + angle / 180
       console.log(angle)
     }
@@ -380,3 +397,5 @@ navigator.getUserMedia = navigator.getUserMedia ||
   navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 // kick off the demo
 bindPage();
+
+// aud = document.getElementById('hipsdownaudio')
