@@ -24,4 +24,4 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 - Go to the directory of the project and type "yarn watch"
 
 ## Working prototype
-https://photos.app.goo.gl/pQqECyk7pHyHjGB
+YouTube Link: https://youtu.be/cdahPdXMMyI
