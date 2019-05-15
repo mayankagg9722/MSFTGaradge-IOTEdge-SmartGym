@@ -1,4 +1,7 @@
 # Smart Gym
+
+<a href="url"><img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/Poster.jpeg" align="left" height="480" width="280" ></a>
+
 ## Description
 By coming in contact with the gym equipment, the weight, seat and various other settings are auto adjusted as per the user's body and training plan.
 The equipment will also measure the work out details like reps, sets, weights and store in the cloud.
