@@ -28,6 +28,7 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 ## How To  Run Code
 - Install Yarn
 - Go to the directory of the project and type "yarn watch"
+- We have also added the Azure Smart Trainer Bot for the integration of the user interface. You can use Azure Bot by running "python    GymTrainerBot.py" inside the directory of "AzureGymTrainer".
 
 ## Working prototype
 YouTube Link: https://youtu.be/cdahPdXMMyI
