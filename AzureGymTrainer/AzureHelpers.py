@@ -3,7 +3,6 @@ from LUISIntent import *
 from TextToSpeech import *
 from GoogleSpeechRecognition import *
 from GlobalHelpers import *
-import sys
 
 def AzureContinuousListening():
     res = None
@@ -33,15 +32,17 @@ def AzureContinuousIntentFetching():
 def mapIntent(intent,responseIntentJson,expectedIntent):
     if(intent=="Introduction" and expectedIntent==intent):
         personname = getNameEntity(responseIntentJson)
+        if(personname==None):
+            personname=""
         intrGreet = botAnswers["exerciseQuestion"]
         intrGreet = intrGreet.format(personname)
-        BotSpeak(intrGreet)
+        return intrGreet
     elif(intent=="ExerciseSentiment" and expectedIntent==intent):
         role = CheckExerciseSentimentRole(responseIntentJson)
         if(role):
-            BotSpeak(getRandomBotAnswers(botAnswers["positiveSentiment"]))
+            return getRandomBotAnswers(botAnswers["positiveSentiment"])
         else:
-            BotSpeak(getRandomBotAnswers(botAnswers["negativeSentiment"]))
+            return getRandomBotAnswers(botAnswers["negativeSentiment"])
     else:
         intent,responseIntentJson = AzureContinuousIntentFetching()
         mapIntent(intent,responseIntentJson,expectedIntent)

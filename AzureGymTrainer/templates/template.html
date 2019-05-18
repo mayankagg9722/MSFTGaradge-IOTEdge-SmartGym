@@ -15,10 +15,12 @@
         <button class="morebutton"><a href="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym">READ MORE</a></button>
           </div>
       </header>
+      <!-- {% for botanswer in botanswers %}
+      <p style="color: wheat;margin: 0px;">{{ botanswer }}</p>
+      {% endfor %} -->
       <div style="text-align: center">
-      <form action="/forward" method="post">
-      <button class="request-loader" id="circle-object" type="submit">{{ buttonName }}</button>
-      </form>
+      {% block startbutton %}
+      {% endblock %}
       </div>
  </body>
  </html>
