@@ -30,18 +30,18 @@ def AzureContinuousIntentFetching():
         intent,responseIntentJson = AzureListeningAndCheckIntent()
     return intent,responseIntentJson
 
-def mapIntent(intent,responseIntentJson):
-    if(intent=="Introduction"):
+def mapIntent(intent,responseIntentJson,expectedIntent):
+    if(intent=="Introduction" and expectedIntent==intent):
         personname = getNameEntity(responseIntentJson)
         intrGreet = botAnswers["exerciseQuestion"]
         intrGreet = intrGreet.format(personname)
         BotSpeak(intrGreet)
-    elif(intent=="ExerciseSentiment"):
+    elif(intent=="ExerciseSentiment" and expectedIntent==intent):
         role = CheckExerciseSentimentRole(responseIntentJson)
         if(role):
             BotSpeak(getRandomBotAnswers(botAnswers["positiveSentiment"]))
         else:
             BotSpeak(getRandomBotAnswers(botAnswers["negativeSentiment"]))
     else:
-        BotSpeak(getRandomBotAnswers(botAnswers["quit"]))
-        sys.exit("intent mapping failed")
+        intent,responseIntentJson = AzureContinuousIntentFetching()
+        mapIntent(intent,responseIntentJson,expectedIntent)

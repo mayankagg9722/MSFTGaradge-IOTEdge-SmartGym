@@ -7,10 +7,9 @@ def startBot():
     BotSpeak(getRandomBotAnswers(botAnswers["greeting"]))
     # Name Stage
     intent,responseIntentJson = AzureContinuousIntentFetching()
-    mapIntent(intent,responseIntentJson)
+    mapIntent(intent,responseIntentJson,"Introduction")
     # Exercise Stage
     intent,responseIntentJson = AzureContinuousIntentFetching()
-    mapIntent(intent,responseIntentJson)
-
-
-startBot()
+    mapIntent(intent,responseIntentJson,"ExerciseSentiment")
+    
+# startBot()
