@@ -4,6 +4,8 @@
    <meta charset="utf-8">
    <title>Edge.Fit</title>
    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script> 
  </head>
  <body>
     <header>
@@ -15,12 +17,11 @@
         <button class="morebutton"><a href="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym">READ MORE</a></button>
           </div>
       </header>
-      <!-- {% for botanswer in botanswers %}
-      <p style="color: wheat;margin: 0px;">{{ botanswer }}</p>
-      {% endfor %} -->
+      <div id="conversations" ></div>
       <div style="text-align: center">
-      {% block startbutton %}
-      {% endblock %}
+      <button class="request-loader" id="circle-object">Start Training</button>
+      <!-- {% block startbutton %}
+      {% endblock %} -->
       </div>
  </body>
  </html>
