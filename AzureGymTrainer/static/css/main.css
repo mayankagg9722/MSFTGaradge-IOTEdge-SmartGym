@@ -91,4 +91,12 @@ a{
 	color: white;
 	background-color: #ef6eae;
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-  }
+}
+
+	.convtag{
+		color:wheat;margin: 0px;margin: 5px;text-align: center;
+	}
+
+	#conversations{
+		margin: 7px;
+	}

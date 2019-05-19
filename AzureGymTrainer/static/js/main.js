@@ -3,7 +3,7 @@ function botintro(ele,conv) {
             function(data) {
                 console.log(data)
                 ele.html(data.buttonName)
-                var convtag = '<p style="color: wheat;margin: 0px;">'+ data.botanswers +'</p>'
+                var convtag = '<p class="convtag">'+ data.botanswers +'</p>'
                 conv.append(convtag)
         });
 }
@@ -12,7 +12,7 @@ function humanIntro(ele,conv) {
             function(data) {
                 console.log(data)
                 ele.html(data.buttonName)
-                var convtag = '<p style="color: wheat;margin: 0px;">'+ data.botanswers +'</p>'
+                var convtag = '<p class="convtag">'+ data.botanswers +'</p>'
                 conv.append(convtag)
         });
 }
@@ -21,17 +21,18 @@ function askExercise(ele,conv) {
             function(data) {
                 console.log(data)
                 ele.html(data.buttonName)
-                var convtag = '<p style="color: wheat;margin: 0px;">'+ data.botanswers +'</p>'
+                var convtag = '<p class="convtag">'+ data.botanswers +'</p>'
                 conv.append(convtag)
         });
 }
+
 $(function() {
     var conv = $("#conversations")
     var ele =  $('#circle-object')
     ele.bind('click', function() {
         botintro(ele,conv);
-        humanIntro(ele,conv);
-        askExercise(ele,conv);
+        // humanIntro(ele,conv);
+        // askExercise(ele,conv);
         return false;
     });
 });

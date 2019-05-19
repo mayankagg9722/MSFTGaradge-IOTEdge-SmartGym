@@ -1,5 +1,7 @@
 import random
 
+botlistening = False
+
 botAnswers = {
     "greeting":["Hi, I am your digital smart trainer. What is your name?"],
     "exerciseQuestion":"Hey {} , would you like to do plank.",
