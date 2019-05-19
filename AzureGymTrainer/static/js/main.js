@@ -1,3 +1,13 @@
+$(document).ready(function(){
+    var socket = io.connect('http://' + document.domain + ':' + location.port);
+    socket.on('connect', function() {
+        socket.emit('uisend', {data: 'I am UI calling to python!'});
+    });
+    socket.on("pysend", function(msg) {
+        console.log("yes baby 2:"+msg.data)
+     });
+});
+
 function botintro(ele,conv) {
     $.getJSON('/botintro',
             function(data) {
