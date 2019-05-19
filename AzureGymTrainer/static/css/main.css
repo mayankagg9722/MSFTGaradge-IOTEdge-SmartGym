@@ -2,7 +2,9 @@
 *{padding: 0; margin: 0; box-sizing: border-box;}
 body{
 	margin: 0px;
-	background: #0B0F25;
+	height: 100%;
+	width: 100%;
+	background-image: linear-gradient(to left top, #955ba5, #8956a3, #7d52a1, #704e9f, #624a9d);
 }
 
 
@@ -15,6 +17,7 @@ body{
  @-webkit-keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}@keyframes heartbeat{from{-webkit-transform:scale(1);transform:scale(1);-webkit-transform-origin:center center;transform-origin:center center;-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}10%{-webkit-transform:scale(.91);transform:scale(.91);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}17%{-webkit-transform:scale(.98);transform:scale(.98);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}33%{-webkit-transform:scale(.87);transform:scale(.87);-webkit-animation-timing-function:ease-in;animation-timing-function:ease-in}45%{-webkit-transform:scale(1);transform:scale(1);-webkit-animation-timing-function:ease-out;animation-timing-function:ease-out}}
 
 header {
+	/* background-image: url("/static/img/gradient.svg"); */
 	text-align: center;
 	width: 100%;
 	height: auto;
@@ -27,15 +30,16 @@ header {
 header .overlay{
 	width: 100%;
 	height: 100%;
-	padding: 50px;
+	padding: 30px;
 	color: #FFF;
 	text-shadow: 1px 1px 1px #333;
-  	background-image: linear-gradient( 135deg, #955BA5 10%, #624A9D 50%, #49439C 40%);
+	  /* background-image: linear-gradient(to right top, #955ba5, #8956a3, #7d52a1, #704e9f, #624a9d); */
+	  background: #0B0F25;
 }
 
 h1 {
 	font-family: 'Dancing Script', cursive;
-	font-size: 80px;
+	font-size: 60px;
 	margin-bottom: 30px;
 	animation:tracking-in-expand 1.0s cubic-bezier(.215,.61,.355,1.000) both
 }
@@ -73,11 +77,18 @@ a{
 	overflow: hidden;
 	animation: 2.5s ease-in-out 0s infinite normal both running heartbeat;
 	display: inline-block;
-	margin-top: 50px;
+	margin-top: 40px;
 	font-size: 20px;
 	font-weight: bolder;
 	border-color: #ef6eae;
-	border-width: 10px;
+	border-width: 5px;
 	border-style: solid;
 	cursor: pointer;
+	transition-duration: 1s;
 }
+
+#circle-object:hover {
+	color: white;
+	background-color: #ef6eae;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+  }

@@ -3,6 +3,7 @@
  <head>
    <meta charset="utf-8">
    <title>Edge.Fit</title>
+   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='img/efit.ico') }}">
    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
    <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script> 
@@ -10,6 +11,11 @@
  <body>
     <header>
       <div class="overlay">
+          <img src="{{ url_for('static', filename='img/edgefit.png') }}" style="
+        max-width:230px;
+        max-height:120px;
+        width: auto;
+        height: auto;">
       <h1>Microsoft Edge.Fit</h1>
       <h3>Personal Trainer On the Edge</h3>
       <p>Our mission is to empower every person and effictively every organisation on the planet to be more fit.</p>
