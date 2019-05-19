@@ -1,13 +1,18 @@
 import pyttsx3
 import threading
+from GlobalHelpers import *
+
+def engine_thread():
+    engine = pyttsx3.init()
+    while True:
+        text = global_queue.get(block=True)
+        if text == "end":
+            break
+        engine.say(text)
+        engine.runAndWait()
+
+t = threading.Thread(target=engine_thread)
+t.start()
 
 def BotSpeak(text):
-    engine = pyttsx3.init()
-    # rate = engine.getProperty('rate')
-    # engine.setProperty('rate', rate-10)
-    engine.say(text)
-    engine.runAndWait()
-
-def BotSpeakAsync(text):
-    x  = threading.Thread(target=BotSpeak,args=(text,))
-    x.start()
+    global_queue.put(text)

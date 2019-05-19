@@ -4,7 +4,7 @@ from AzureHelpers import *
 
 def startBotGreeting():
     greet = getRandomBotAnswers(botAnswers["greeting"])
-    BotSpeakAsync(greet)
+    BotSpeak(greet)
     return greet
 
 def humanIntroduction():

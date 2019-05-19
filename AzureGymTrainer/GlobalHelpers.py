@@ -1,5 +1,6 @@
 import random
-
+import queue
+global_queue = queue.Queue()
 botlistening = False
 
 botAnswers = {
