@@ -31,8 +31,12 @@ $(function() {
     var ele =  $('#circle-object')
     ele.bind('click', function() {
         botintro(ele,conv);
-        // humanIntro(ele,conv);
-        // askExercise(ele,conv);
+        setTimeout(() => {
+            humanIntro(ele,conv);
+        }, 5000);
+        setTimeout(()=>{
+            askExercise(ele,conv);
+        },11000)
         return false;
     });
 });
