@@ -37,6 +37,9 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 >- Or to run directly posture recognition part of the project you can use `python demo.py` file.
 
 
+<img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/websiteimage.jpg">
+
+
 ## Libraries  Used For Project
 1. Azure Cognitive Services
 2. Pyttsx3
