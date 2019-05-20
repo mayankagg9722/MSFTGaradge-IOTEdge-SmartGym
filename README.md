@@ -1,10 +1,11 @@
+
 # Smart Gym
-
-Overview: https://youtu.be/0-dl__J98mo
-
 <img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/Poster.jpeg" height="280" width="180" >
   
 ## Description
+
+> Overview: [Introduction Video](https://youtu.be/0-dl__J98mo)
+
 By coming in contact with the gym equipment, the weight, seat and various other settings are auto adjusted as per the user's body and training plan.
 The equipment will also measure the work out details like reps, sets, weights and store in the cloud.
 By analysing the pattern, the app will also provide personlised training plan.
@@ -28,15 +29,26 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 ## How To  Run Code
 - Install Yarn
 - Go to the directory of the project and type "yarn watch"
-- We have also added the Azure Smart Trainer Bot for the integration of the user interface. You can use Azure Bot by running "python    GymTrainerBot.py" inside the directory of "AzureGymTrainer".
+- We have also added the Azure Smart Trainer Bot for the integration of the user interface. You can use Azure Bot by running `python GymTrainerBot.py` inside the directory of "AzureGymTrainer".
 
-> Or else you can also use the GUI created for this project in the Microsoft Hackathon by opening the folder "edgehack-final-project"
-> Install the required modules in the requirements.txt in the local or the conda virtual enviroment.
-> Then you can direclty execute the GUI by typing "python main.py" which will run the video through the integration with the Azure Bot.
+>- Or else you can also use the GUI created for this project in the Microsoft Hackathon by opening the folder "edgehack-final-project" 
+>- Install the required modules in the requirements.txt in the local or the conda virtual enviroment.
+>- Then you can direclty execute the GUI by typing `python main.py` which will run the video through the integration with the Azure Bot.
+>- Or to run directly posture recognition part of the project you can use `python demo.py` file.
 
-## Azure Conginitive Service And GUI
-We have used the Azure Congnitive Services for the Speech to Text and LUIS integration for the language and the intent analyzation.
+
+## Libraries  Used For Project
+1. Azure Cognitive Services
+2. Pyttsx3
+3. LUIS
+4. Socket.io
+5. Flask
+6. Python 3
+7. PyTorch
+8. Posnet Model
+
+>We have used the Azure Congnitive Services for the Speech to Text and **LUIS** integration for the language and the intent analyzation.
 GUI is created using the flask and UI bindings are done using socket.io asynchronous queues.
 
 ## Working prototype
-YouTube Link: https://youtu.be/cdahPdXMMyI
+YouTube Link: [Prototype Link](https://youtu.be/cdahPdXMMyI)
