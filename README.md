@@ -30,9 +30,9 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 - Go to the directory of the project and type "yarn watch"
 - We have also added the Azure Smart Trainer Bot for the integration of the user interface. You can use Azure Bot by running "python    GymTrainerBot.py" inside the directory of "AzureGymTrainer".
 
-- Or else you can also use the GUI created for this project in the Microsoft Hackathon by opening the folder "edgehack-final-project"
-- Install the required modules in the requirements.txt in the local or the conda virtual enviroment.
-- Then you can direclty execute the GUI by typing "python main.py" which will run the video through the integration with the Azure Bot.
+> Or else you can also use the GUI created for this project in the Microsoft Hackathon by opening the folder "edgehack-final-project"
+> Install the required modules in the requirements.txt in the local or the conda virtual enviroment.
+> Then you can direclty execute the GUI by typing "python main.py" which will run the video through the integration with the Azure Bot.
 
 ## Azure Conginitive Service And GUI
 We have used the Azure Congnitive Services for the Speech to Text and LUIS integration for the language and the intent analyzation.
