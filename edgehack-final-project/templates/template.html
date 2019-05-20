@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>Edge.Fit</title>
+   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='img/efit.ico') }}">
+   <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css') }}">
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+   <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script> 
+   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+ </head>
+ <body>
+    <header>
+      <div class="overlay">
+          <img src="{{ url_for('static', filename='img/edgefit.png') }}" style="
+        max-width:230px;
+        max-height:120px;
+        width: auto;
+        height: auto;">
+      <h1>Microsoft Edge.Fit</h1>
+      <h3>Personal Trainer On the Edge</h3>
+      <p>Our mission is to empower every person and effictively every organisation on the planet to be more fit.</p>
+        <br>
+        <button class="morebutton"><a href="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym">READ MORE</a></button>
+          </div>
+      </header>
+     
+      <div style="text-align: center">
+      <button class="request-loader" id="circle-object">Start Training</button>
+      <button class="request-loader" id="circle-objectify">Open Trainer</button>
+      <!-- {% block startbutton %}
+      {% endblock %} -->
+      </div>
+      <div id="accuracydiv" style="display:none"><p class="convtag" style="color:white !important;" id="accuracytext"></p></div>
+      <p class="convtag" id="showListening" style="display:none">Listening..</p>
+      <div id="summary" style="display:none"></div>
+      <div id="conversations" ></div>
+ </body>
+ </html>

@@ -1,11 +1,12 @@
 import azure.cognitiveservices.speech as speechsdk
-
+from GlobalHelpers import *
 speech_key, service_region = "4c80a4fb678f438eb068f0e22fbf076e", "southcentralus"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region, speech_recognition_language="en-IN")
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
 
 def AzureListening():
     print("azure listening...")
+    conv_queue.put("Please say now...")
     result = speech_recognizer.recognize_once()
     if result.reason == speechsdk.ResultReason.RecognizedSpeech:
         print("Recognized: {}".format(result.text))

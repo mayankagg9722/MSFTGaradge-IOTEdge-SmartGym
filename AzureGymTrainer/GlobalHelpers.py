@@ -1,7 +1,10 @@
 import random
 import queue
-global_queue = queue.Queue()
+# global_queue = queue.Queue()
 botlistening = False
+# accuracy_queue = queue.Queue()
+# conv_queue = queue.Queue()
+
 
 botAnswers = {
     "greeting":["Hi, I am your digital smart trainer. What is your name?"],

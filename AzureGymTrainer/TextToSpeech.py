@@ -11,7 +11,7 @@ def engine_thread():
         engine.say(text)
         engine.runAndWait()
 
-t = threading.Thread(target=engine_thread)
+t = threading.Thread(target=engine_thread,daemon=True)
 t.start()
 
 def BotSpeak(text):

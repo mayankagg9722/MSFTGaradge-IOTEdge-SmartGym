@@ -6,6 +6,11 @@ $(document).ready(function(){
     socket.on("pysend", function(msg) {
         console.log("yes baby 2:"+msg.data)
      });
+     socket.on("convsend", function(msg) {
+        console.log("yes baby 3:"+msg.data)
+        var convtag = '<p class="convtag">'+ msg.data +'</p>'
+        conv.append(convtag)
+     });
 });
 
 function botintro(ele,conv) {
