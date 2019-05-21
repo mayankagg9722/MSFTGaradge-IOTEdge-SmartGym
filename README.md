@@ -50,7 +50,7 @@ As part of the hackathon, based on the skill sets of the team members, idea is t
 7. PyTorch
 8. Posnet Model
 
->We have used the Azure Congnitive Services for the Speech to Text and **LUIS** integration for the language and the intent analyzation.
+>We have used the Azure Congnitive Services for the Speech to Text and **LUIS** integration for the language understanding and the intent analyzation.
 GUI is created using the flask and UI bindings are done using socket.io asynchronous queues.
 
 ## Working prototype
