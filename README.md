@@ -1,7 +1,7 @@
 
 # Smart Gym
-<img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/Poster.jpeg" height="280" width="180" >
-  
+<p align="center">
+<img src="https://github.com/mayankagg9722/MSFTGaradge-IOTEdge-SmartGym/blob/master/Poster.jpeg" height="280" width="180" align="center" ></p>
 ## Description
 
 > Overview: [Introduction Video](https://youtu.be/0-dl__J98mo)
