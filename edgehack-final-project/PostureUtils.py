@@ -1,6 +1,19 @@
 import sys    
 import numpy as np
 from demo import partIntMap
+
+'''
+Usage:
+from PostureUtils import Point
+pose_entry = pose_entries[0]
+#Making the point objects
+p1 = Point(pose_entry, all_keypoints, "left", "Shoulder")
+p2 = Point(pose_entry, all_keypoints, "chestCenter")
+p3 = Point(pose_entry, all_keypoints,"nose")
+
+#Get angle formed at p2 by the lines joining p2 with p1 and p3
+print("angle : " + str(p2.getJointAngle(p1,p3)))
+'''
 class Point:
     def __init__(self,pose_entries, all_keypoints, side, part=None):
         if part is None:
