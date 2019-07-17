@@ -1,6 +1,5 @@
 import sys    
 import numpy as np
-from demo import partIntMap
 
 '''
 Usage:
@@ -20,7 +19,6 @@ class Point:
             pos = pose_entries[partIntMap[side]]
         else:
             pos = pose_entries[partIntMap[side+part]]
-        print("pos" + str(pos))
         self.coord = all_keypoints[int(pos), 0:2]
         self.side = side
         self.part = part
@@ -36,3 +34,25 @@ class Point:
         angle = np.arccos(cosine_angle)
 
         return np.degrees(angle)
+
+
+partIntMap = {
+        'leftHip': 11,
+        'rightHip': 8,
+        'leftKnee': 12,
+        'rightKnee': 9,
+        'nose': 0,
+        'leftElbow': 6,
+        'rightElbow': 3,
+        'rightShoulder': 2,
+        'leftShoulder': 5,
+        'chestCenter': 1,
+        'leftEye': 15,
+        'rightEye': 14,
+        'rightWrist': 4,
+        'leftWrist': 7,
+        'rightAnkle': 10,
+        'leftAnkle': 13,
+        'leftEar': 16,
+        'rightEar': 17
+    }

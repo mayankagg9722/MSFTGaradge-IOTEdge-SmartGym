@@ -6,6 +6,8 @@ import torch
 import math
 import time
 import TextToSpeech as tts
+import sys
+import os
 
 from models.with_mobilenet import PoseEstimationWithMobileNet
 from modules.keypoints import extract_keypoints, group_keypoints, BODY_PARTS_KPT_IDS, BODY_PARTS_PAF_IDS
@@ -13,8 +15,7 @@ from modules.load_state import load_state
 from val import normalize, pad_width
 from flask_socketio import SocketIO,emit
 from GlobalHelpers import accuracy_queue, botlog_queue
-
-
+from PostureUtils import partIntMap
 
 class ImageReader(object):
     def __init__(self, file_names):
@@ -29,7 +30,8 @@ class ImageReader(object):
         if self.idx == self.max_idx:
             raise StopIteration
         img = cv2.imread(self.file_names[self.idx], cv2.IMREAD_COLOR)
-        if img.size == 0:
+        if img is None:
+            print ("img is None")
             raise IOError('Image {} cannot be read'.format(self.file_names[self.idx]))
         self.idx = self.idx + 1
         return img
@@ -218,7 +220,7 @@ def run_demo(net, image_provider, height_size, cpu):
     for img in image_provider:
         orig_img = img.copy()
         heatmaps, pafs, scale, pad = infer_fast(net, img, height_size, stride, upsample_ratio, cpu)
-
+        
         total_keypoints_num = 0
         all_keypoints_by_type = []
         for kpt_idx in range(18):  # 19th for bg
@@ -629,9 +631,12 @@ def drawLinesTriplets(pose_entries, all_keypoints, img, color, side, part1L, par
 def checkDistance(pose_entries, all_keypoints, side, part1, part2):
     part1_global = pose_entries[partIntMap[side+part1]]
     part1 = all_keypoints[int(part1_global), 0:2]
+    #print (part1,all_keypoints[int(part1_global)])
     part2_global = pose_entries[partIntMap[side+part2]]
     part2 = all_keypoints[int(part2_global), 0:2]
-    distance = np.square((part1[0]-part2[0])) + np.square((part1[1]-part2[0]))
+    #print(part2,all_keypoints[int(part2_global)])
+    distance = np.square((part1[0]-part2[0])) + np.square((part1[1]-part2[1]))
+    #print ("distance" + str(distance))
     if distance < 20:
         return False
     return True
@@ -664,24 +669,46 @@ load_state(net, checkpoint)
 def start_planks(source=0, vid=None):
     # accuracy_queue.put("from demo fun")
     print(source, vid)
-    frame_provider = CameraReader(source=source)
+    #frame_provider = CameraReader(source=source)
     if vid is not None:
-        frame_provider = VideoReader(vid)
+        frame_provider = ImageReader(vid)
     height_size = 256
-    cpu = False
+    cpu = True
     # tts.init()
-    run_demo(net, frame_provider, height_size, cpu)
+    if(frame_provider):
+        run_demo(net, frame_provider, height_size, cpu)
+        print ("plank done")
+
+def start_bicepcurl(source=0, vid=None):
+    vid = []
+    for filename in os.listdir(source):
+        vid.append(os.path.join(source, filename))
+    print(vid)
+    if vid is not None:
+        frame_provider = ImageReader(vid)
+    height_size = 256
+    cpu = True
+    # tts.init()
+    if(frame_provider):
+        from BicepCurl import run_bicepcurl
+        run_bicepcurl(net, frame_provider, height_size, cpu)
+        print ("bicep curl done")
+
 if __name__ == '__main__':
     tts.init()
-    # vid = 'shivam plank_Trim.mp4'
+    vid = ['me.jpg']
     # vid = 'mayank quick start.mp4'
-    vid = None
+    #vid = None
     source = 1
-    frame_provider = CameraReader(source)
+    #frame_provider = CameraReader(source)
     if vid is not None:
-        frame_provider = VideoReader(vid)
+        frame_provider = ImageReader(vid)
     height_size = 256
     cpu = False
     # vid = 'mayank back raise.mp4'
-    start_planks(0, vid)
+    exercise = "bicepcurl"
+    if(exercise == "plank"):
+        start_planks(0, vid)
+    elif(exercise == "bicepcurl"):
+        start_bicepcurl('./data/bcurl')
     
