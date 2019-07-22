@@ -91,3 +91,4 @@ def run_bicepcurl(net, image_provider, height_size, cpu):
             if incomplete_dir_count > 10:
                 print ("incomplete rep. Try again")
                 incomplete_dir_count = 0
+    exit(0)

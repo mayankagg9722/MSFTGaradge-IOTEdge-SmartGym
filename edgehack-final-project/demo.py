@@ -5,7 +5,7 @@ import numpy as np
 import torch
 import math
 import time
-import TextToSpeech as tts
+#import TextToSpeech as tts
 import sys
 import os
 
@@ -294,7 +294,7 @@ def run_demo(net, image_provider, height_size, cpu):
                         begun = True
                         pose_startt = time.time()
                         last_time_time = time.time()
-                        tts.BotSpeak("Now that you are in position, I'll start the timer.")
+                        #tts.BotSpeak("Now that you are in position, I'll start the timer.")
                         botlog_queue.put("Now that you are in position, I'll start the timer.")
                     if begun: 
                         accuracy = getAccuracy(avgwes, avgesh, avgshk, avgseh, avgsek)
@@ -307,7 +307,7 @@ def run_demo(net, image_provider, height_size, cpu):
                                 # if check.display_message:
                                     # tts.BotSpeak(check.message)
                                 if check.display_message:
-                                    tts.BotSpeak(check.message)
+                                    #tts.BotSpeak(check.message)
                                     botlog_queue.put(check.message)
                                     displayText(check.message, 20, 100, img, (0, 255, 0))
                                 correct_pose = False
@@ -315,7 +315,7 @@ def run_demo(net, image_provider, height_size, cpu):
                         d = time.time()-last_time_time
                         if d > 10:
                             seconds_over = int(time.time()-pose_startt)
-                            tts.BotSpeak("{0} seconds over".format(seconds_over))
+                            ##tts.BotSpeak("{0} seconds over".format(seconds_over))
                             botlog_queue.put("{0} seconds over".format(seconds_over))
                             last_time_time = time.time()
                         if not correct_pose:                            
@@ -323,7 +323,7 @@ def run_demo(net, image_provider, height_size, cpu):
                             #     if lower_hip_time > 0:
                             #         d = time.time() - lower_hip_time
                             #         if d > 5:
-                            #             tts.BotSpeak("Lower your hips")
+                            #             #tts.BotSpeak("Lower your hips")
                             #             lower_hip_time = 0
                             #     else:
                             #         lower_hip_time = time.time()
@@ -355,15 +355,15 @@ def run_demo(net, image_provider, height_size, cpu):
                     total_bad_duration += time.time()-badpose_startt
                 duration = time.time() - pose_startt
                 good_duration = duration-total_bad_duration
-                tts.BotSpeak("You held an incorrect position for too long.")
+                #tts.BotSpeak("You held an incorrect position for too long.")
                 botlog_queue.put("You held an incorrect position for too long.")
-                tts.BotSpeak("Your workout is now complete")
+                #tts.BotSpeak("Your workout is now complete")
                 botlog_queue.put("Your workout is now complete")
-                tts.BotSpeak("Your average accuracy was {0}".format( int(avg_accuracy.get())))
+                #tts.BotSpeak("Your average accuracy was {0}".format( int(avg_accuracy.get())))
                 botlog_queue.put("Your average accuracy was {0}".format( int(avg_accuracy.get())))
-                tts.BotSpeak("You held the correct plank position for {0} seconds and your workout lasted for {1} seconds.".format(int(good_duration), int(duration)))
+                #tts.BotSpeak("You held the correct plank position for {0} seconds and your workout lasted for {1} seconds.".format(int(good_duration), int(duration)))
                 botlog_queue.put("You held the correct plank position for {0} seconds and your workout lasted for {1} seconds.".format(int(good_duration), int(duration)))
-                # tts.BotSpeak("end")
+                # #tts.BotSpeak("end")
 
 
 
@@ -406,7 +406,7 @@ def run_demo(net, image_provider, height_size, cpu):
         # cv2.imwrite("output.jpeg", img)
         key = cv2.waitKey(33)
         if key == 27:  # esc
-            # tts.BotSpeak("end")
+            # #tts.BotSpeak("end")
             return
 
 class Struct:
@@ -674,7 +674,7 @@ def start_planks(source=0, vid=None):
         frame_provider = ImageReader(vid)
     height_size = 256
     cpu = True
-    # tts.init()
+    # #tts.init()
     if(frame_provider):
         run_demo(net, frame_provider, height_size, cpu)
         print ("plank done")
@@ -688,14 +688,14 @@ def start_bicepcurl(source=0, vid=None):
         frame_provider = ImageReader(vid)
     height_size = 256
     cpu = True
-    # tts.init()
+    # #tts.init()
     if(frame_provider):
         from BicepCurl import run_bicepcurl
         run_bicepcurl(net, frame_provider, height_size, cpu)
         print ("bicep curl done")
 
 if __name__ == '__main__':
-    tts.init()
+    #tts.init()
     vid = ['me.jpg']
     # vid = 'mayank quick start.mp4'
     #vid = None
